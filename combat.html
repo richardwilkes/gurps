@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Combat Summary</title>
+    <style>
+        :root {
+            --header-background: black;
+            --header-text: white;
+            --border-color: grey;
+            --banding-color: #f0f0f0;
+        }
+        body {
+            padding: 0;
+            margin: 0.25in;
+            font-family: sans-serif;
+            font-size: 7.5pt;
+        }
+        @media print {
+            body {
+                margin: 0;
+            }
+        }
+        .maneuvers, .options, .postures {
+            border: 1px solid var(--header-background);
+            margin: 0;
+            padding: 0;
+            width: 8in;
+            display: grid;
+        }
+        .maneuvers {
+            border-top-left-radius: 0.5em;
+            border-top-right-radius: 0.5em;
+            border-bottom: none;
+            grid-template-areas: "maneuver desc defense movement page";
+        }
+        .options {
+            border-top: none;
+            grid-template-areas: "option desc page";
+            grid-template-columns: auto 1fr auto;
+        }
+        .postures {
+            border-top: none;
+            border-bottom-left-radius: 0.5em;
+            border-bottom-right-radius: 0.5em;
+            grid-template-areas: "posture attack defense target movement notes";
+        }
+        .maneuvers > .title {
+            grid-column: span 5;
+        }
+        .options > .title {
+            grid-column: span 3;
+        }
+        .postures > .title {
+            grid-column: span 6;
+        }
+        .title {
+            background-color: var(--header-background);
+            color: var(--header-text);
+            padding: 0.2em;
+            padding-bottom: 0.1em;
+            text-align: center;
+        }
+        .maneuver, .maneuver-sub {
+            padding: 0.2em;
+            font-weight: bold;
+        }
+        .maneuver-sub {
+            padding-left: 1em;
+        }
+        .desc, .defense, .move, .page {
+            padding: 0.2em;
+            border-left: 1px solid var(--border-color);
+        }
+        .footer > div, .option, .option-sub, .option-desc, .option-page {
+            padding: 0.2em;
+        }
+        .option-desc, .option-page {
+            border-left: 1px solid var(--border-color);
+        }
+        .header {
+            background-color: var(--header-background);
+            color: var(--header-text);
+            padding: 0.2em;
+            font-size: smaller;
+            text-align: center;
+        }
+        .option, .option-sub {
+            font-weight: bold;
+        }
+        .span5 {
+            grid-column: span 5;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .span3 {
+            grid-column: span 3;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .option-sub {
+            padding-left: 1em;
+        }
+        .note {
+            grid-row: span 6;
+            align-self: center;
+        }
+        .footer {
+            padding: 0.2em;
+            padding-right: 0.5em;
+            font-size: 90%;
+            border-top: 1px solid var(--border-color);
+            grid-column: span 5;
+        }
+        .footer > ol, .note > ol {
+            margin: 0;
+            padding-inline-start: 2.5em;
+        }
+        .option-footer {
+            padding: 0.2em;
+            padding-right: 0.5em;
+            font-size: 90%;
+            border-top: 1px solid var(--border-color);
+            grid-column: span 3;
+        }
+        .option-footer > ol, .note > ol {
+            margin: 0;
+            padding-inline-start: 2.5em;
+        }
+        .posture {
+            font-weight: bold;
+            padding: 0.2em;
+        }
+        .attack, .defense, .target, .movement {
+            border-left: 1px solid var(--border-color);
+            padding: 0.2em;
+        }
+        .movement {
+            border-right: 1px solid var(--border-color);
+        }
+        .attack, .defense, .target {
+            text-align: center;
+        }
+        .note {
+            padding: 0.2em;
+            padding-right: 0.5em;
+            font-size: 90%;
+        }
+        .band {
+            background-color: var(--banding-color);
+        }
+        .posture:nth-last-child(5) {
+            border-bottom-left-radius: 0.5em;
+        }
+        .sep {
+            border-top: 1px solid var(--border-color);
+        }
+        .sup {
+            font-size: 70%;
+            vertical-align: text-top;
+        }
+    </style>
+</head>
+<body>
+<div class="maneuvers">
+    <div class="title">Combat Maneuvers</div>
+
+    <div class="header">Maneuver</div>
+    <div class="header">Description</div>
+    <div class="header">Defense</div>
+    <div class="header">Movement</div>
+    <div class="header">Page</div>
+
+    <div class="maneuver">Aim</div>
+    <div class="desc">Aim a ranged weapon to get its Acc bonus (+1 for bracing, +1 for 2 turns, +2 for 3+ turns;
+        combined bonus from all targeting systems cannot exceed the weapon's base Acc). Must choose a specific target
+        that you can see.</div>
+    <div class="defense">Any<span class="sup">1</span></div>
+    <div class="move">Step (None with braced two-handed weapon)</div>
+    <div class="page">B364</div>
+
+    <div class="maneuver span5 band">All-Out Attack (Melee)</div>
+
+    <div class="maneuver-sub">Determined</div>
+    <div class="desc">+4 to hit</div>
+    <div class="defense">None</div>
+    <div class="move">Half Move (forward)</div>
+    <div class="page">B365</div>
+
+    <div class="maneuver-sub band">Double</div>
+    <div class="desc band">2 attacks on same foe if you have two ready weapons or one weapon that does not have to be
+        readied after use (normal -4 off-hand penalty applies)</div>
+    <div class="defense band">None</div>
+    <div class="move band">Half Move (forward)</div>
+    <div class="page band">B365</div>
+
+    <div class="maneuver-sub">Feint</div>
+    <div class="desc">Make one feint and then one attack on same foe</div>
+    <div class="defense">None</div>
+    <div class="move">Half Move (forward)</div>
+    <div class="page">B365</div>
+
+    <div class="maneuver-sub band">Strong</div>
+    <div class="desc band">+2 to damage (or +1 per damage die)</div>
+    <div class="defense band">None</div>
+    <div class="move band">Half Move (forward)</div>
+    <div class="page band">B365</div>
+
+    <div class="maneuver span5">All-Out Attack (Ranged)</div>
+
+    <div class="maneuver-sub band">Determined</div>
+    <div class="desc band">+1 to hit</div>
+    <div class="defense band">None</div>
+    <div class="move band">Half Move (forward)</div>
+    <div class="page band">B365</div>
+
+    <div class="maneuver-sub">Suppression Fire</div>
+    <div class="desc">Weapon must have RoF 5+ (B409)</div>
+    <div class="defense">None</div>
+    <div class="move">Half Move (forward)</div>
+    <div class="page">B365</div>
+
+    <div class="maneuver band span5">All-Out Defense</div>
+
+    <div class="maneuver-sub">Increased</div>
+    <div class="desc">+2 to one Active Defense until next turn</div>
+    <div class="defense">Any</div>
+    <div class="move">Step (or Half Move with Increased Dodge)</div>
+    <div class="page">B366</div>
+
+    <div class="maneuver-sub band">Double</div>
+    <div class="desc band">Two <em>different</em> Defenses against one attack</div>
+    <div class="defense band">Any</div>
+    <div class="move band">Step</div>
+    <div class="page band">B366</div>
+
+    <div class="maneuver sep">Attack</div>
+    <div class="desc sep">Attack unarmed or with a ready weapon (melee weapon attacks are at -4 to off-hand)</div>
+    <div class="defense sep">Any</div>
+    <div class="move sep">Step (before or after attack)</div>
+    <div class="page sep">B365</div>
+
+    <div class="maneuver band sep">Change Posture</div>
+    <div class="desc band sep">Standing, sitting, kneeling, crawling, prone, lying face up. You cannot stand up directly
+        from a lying position. You can switch between kneeling and standing (only) as the “step” portion of any maneuver
+        that allows a step &mdash; you don’t need Change Posture for that. This is instead of using the step to move.</div>
+    <div class="defense band sep">Any</div>
+    <div class="move band sep">None</div>
+    <div class="page band sep">B364</div>
+
+    <div class="maneuver sep">Concentrate</div>
+    <div class="desc sep">Focus on a mental task</div>
+    <div class="defense sep">Any<span class="sup">2</span></div>
+    <div class="move sep">Step</div>
+    <div class="page sep">B366</div>
+
+    <div class="maneuver band sep">Do Nothing</div>
+    <div class="desc band sep">Take no action (Active Defenses at -4 if taking Do Nothing due to Stun; roll vs.
+        HT/IQ to recover &mdash; recovery doesn't eliminate the penalty until next turn)</div>
+    <div class="defense band sep">Any</div>
+    <div class="move band sep">None</div>
+    <div class="page band sep">B364</div>
+
+    <div class="maneuver sep">Evaluate (Melee)</div>
+    <div class="desc sep">Study a foe prior to a melee attack (+1/turn to subsequent attacks or feints, max. +3)</div>
+    <div class="defense sep">Any</div>
+    <div class="move sep">Step</div>
+    <div class="page sep">B364</div>
+
+    <div class="maneuver band sep">Feint (Melee)</div>
+    <div class="desc band sep">Contest of combat skill vs. best of opponent's combat skill, cloak/shield, or DX.
+        Subtract margin of success from opponent's Active Defense against your attack next turn.</div>
+    <div class="defense band sep">Any</div>
+    <div class="move band sep">Step</div>
+    <div class="page band sep">B365</div>
+
+    <div class="maneuver span5 sep">Move and Attack</div>
+
+    <div class="maneuver-sub band">Melee</div>
+    <div class="desc band">Attack at a -4 penalty unless a Slam is being used. Maximum skill of 9.</div>
+    <div class="defense band">Special<span class="sup">3</span></div>
+    <div class="move band">Full Move (-2 to avoid falling)</div>
+    <div class="page band">B365</div>
+
+    <div class="maneuver-sub">Ranged</div>
+    <div class="desc">Attack at -2 or the weapon's Bulk penalty, whichever is worse and lose any aiming bonus</div>
+    <div class="defense">Special<span class="sup">3</span></div>
+    <div class="move">Full Move (-2 to avoid falling)</div>
+    <div class="page">B365</div>
+
+    <div class="maneuver band sep">Move</div>
+    <div class="desc band sep">Do nothing but move (see Sprinting, B354) and free actions (B363)</div>
+    <div class="defense band sep">Any</div>
+    <div class="move band sep">Full Move</div>
+    <div class="page band sep">B364</div>
+
+    <div class="maneuver sep">Ready</div>
+    <div class="desc sep">Ready or reload a weapon (B382), adjust reach (B269), change grip (B383), change hands or
+        perform physical actions other than fighting: opening or closing a door, picking a lock, digging, lifting, etc.</div>
+    <div class="defense sep">Any</div>
+    <div class="move sep">Step</div>
+    <div class="page sep">B366</div>
+
+    <div class="maneuver band sep">Wait</div>
+    <div class="desc band sep">Do nothing unless a particular event you specified in advance occurs before
+        your next turn. If it happens, you may transform your Wait into an Attack, Feint, All-Out Attack, or Ready
+        maneuver (you must specify the option before acting). If you are reacting to someone else, this interrupts his
+        turn, but he can resume it after you’ve acted.</div>
+    <div class="defense band sep">Any<span class="sup">4</span></div>
+    <div class="move band sep">None until Wait triggered</div>
+    <div class="page band sep">B366</div>
+
+    <div class="footer">
+        <ol>
+            <li>Taking an active defense spoils your Aim; if you are injured, make a Will roll or lose your Aim.</li>
+            <li>Taking an active defense or being knocked down, injured, distracted etc. requires a Will-3 roll to
+                maintain.</li>
+            <li>The attacker cannot parry with the limb(s) he used to attack, block if he attacked with his shield or
+                cloak, or dodge if he kicked. He can use any other defense, but cannot retreat.</li>
+            <li>You may defend normally while you are waiting or after your Wait is triggered. But if you defend while
+                taking a Wait, you may not transform your Wait into an All-Out Attack; you must convert your Wait into
+                an Attack instead.</li>
+        </ol>
+    </div>
+</div>
+<div class="options">
+    <div class="title">Combat Options</div>
+
+    <div class="header">Option</div>
+    <div class="header">Description</div>
+    <div class="header">Page</div>
+
+    <div class="option">Deceptive Attack</div>
+    <div class="option-desc">Target suffers a -1 to active defense for every -2 taken to combat skill. May not reduce
+        his combat skill below 10.</div>
+    <div class="option-page">B369</div>
+
+    <div class="option band sep">Dual-Weapon Attack</div>
+    <div class="option-desc band sep">Use both hands to make two attacks, both at -4, to replace one
+        normal attack (not an All-Out Attack). Off-hand is at the usual -4 for weapon attacks. Can target separate foes
+        (if adjacent for melee). Foe defends at -1 if he is the target of both attacks.</div>
+    <div class="option-page band sep">B417</div>
+
+    <div class="option sep">Rapid Strike</div>
+    <div class="option-desc sep">Make two attacks (with a ready hand/weapon), both at -6, to replace one normal
+        attack. Can target separate foes (within a 30° angle for Ranged). Ranged attacks require a weapon with RoF of
+        2+. Divide the RoF evenly into two separate attacks, and use each to determine the rapid-fire bonus.</div>
+    <div class="option-page sep">B370</div>
+
+    <div class="option band span3">Extra Effort<span class="sup">1</span></div>
+
+    <div class="option-sub">Feverish Defense</div>
+    <div class="option-desc">Spend 1 FP to add +2 to a single active defense roll</div>
+    <div class="option-page">B357</div>
+
+    <div class="option-sub band">Flurry of Blows</div>
+    <div class="option-desc band">Spend 1 FP per attack to halve the penalty for a melee Rapid Strike (usually -6).</div>
+    <div class="option-page band">B357</div>
+
+    <div class="option-sub">Mighty Blows</div>
+    <div class="option-desc">Spend 1 FP per attack to get the All-Out Attack (Strong) damage bonus to a melee
+        Attack without losing defenses.</div>
+    <div class="option-page">B357</div>
+
+    <div class="option-footer band">
+        <ol>
+            <li>You must declare that you are using extra effort and spend the required FP before you make your attack
+                or defense roll. A critical failure on the roll causes 1 HP of injury to the arm (if blocking, parrying,
+                or attacking with a shield, weapon, or hand) or leg (if dodging or kicking) in addition to the usual
+                critical miss results. DR does not protect you from this damage. May use no more than one offensive
+                option (Flurry of Blows or Mighty Blows) and one defensive option (Feverish Defense).</li>
+        </ol>
+    </div>
+</div>
+<div class="postures">
+    <div class="title">Postures</div>
+
+    <div class="header">Posture</div>
+    <div class="header">Attack<span class="sup">1</span></div>
+    <div class="header">Defense</div>
+    <div class="header">Target<span class="sup">2</span></div>
+    <div class="header">Movement</div>
+    <div class="header"></div>
+
+    <div class="posture">Standing</div>
+    <div class="attack">Normal</div>
+    <div class="defense">Normal</div>
+    <div class="target">Normal</div>
+    <div class="movement">Normal (may Sprint, B354)</div>
+    <div class="note">
+        <ol>
+            <li>Does not apply to ranged attacks</li>
+            <li>Modifier for ranged attacks to the torso, groin, or legs</li>
+            <li>If attacker is at the same or lower elevation and farther away than his own height, he attacks your
+                torso as if it were half exposed (-2 to hit), and cannot attack your groin, legs, or feet at all. If you
+                also have your head down, he cannot attack your neck, eyes, or face.</li>
+        </ol>
+    </div>
+
+    <div class="posture band">Crouching</div>
+    <div class="attack band">-2</div>
+    <div class="defense band">Normal</div>
+    <div class="target band">-2</div>
+    <div class="movement band">2/3 (or +1/2 MP per hex)</div>
+
+    <div class="posture">Kneeling</div>
+    <div class="attack">-2</div>
+    <div class="defense">-2</div>
+    <div class="target">-2</div>
+    <div class="movement">1/3 (or +2 MP per hex)</div>
+
+    <div class="posture band">Crawling</div>
+    <div class="attack band">-4 (reach “C”)</div>
+    <div class="defense band">-3</div>
+    <div class="target band">-2<span class="sup">3</span></div>
+    <div class="movement band">1/3 (or +2 MP per hex)</div>
+
+    <div class="posture">Sitting</div>
+    <div class="attack">-2</div>
+    <div class="defense">-2</div>
+    <div class="target">-2</div>
+    <div class="movement">None</div>
+
+    <div class="posture band">Lying Down</div>
+    <div class="attack band">-4</div>
+    <div class="defense band">-3</div>
+    <div class="target band">-2<span class="sup">3</span></div>
+    <div class="movement band">1 yard/second</div>
+</div>
+</body>
+</html>

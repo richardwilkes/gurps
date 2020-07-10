@@ -14,7 +14,7 @@
             padding: 0;
             margin: 0.25in;
             font-family: sans-serif;
-            font-size: 7.5pt;
+            font-size: 7.8pt;
         }
         @media print {
             body {
@@ -33,6 +33,7 @@
             border-top-right-radius: 0.5em;
             border-bottom: none;
             grid-template-areas: "maneuver desc defense movement page";
+            grid-template-columns: auto 1fr auto auto auto;
         }
         .options {
             border-top: none;
@@ -44,6 +45,7 @@
             border-bottom-left-radius: 0.5em;
             border-bottom-right-radius: 0.5em;
             grid-template-areas: "posture attack defense target movement notes";
+            grid-template-columns: auto auto auto auto auto 1fr;
         }
         .maneuvers > .title {
             grid-column: span 5;
@@ -71,7 +73,7 @@
             padding: 0.2em;
             border-left: 1px solid var(--border-color);
         }
-        .footer > div, .option, .option-sub, .option-desc, .option-page {
+        .option, .option-sub, .option-desc, .option-page {
             padding: 0.2em;
         }
         .option-desc, .option-page {
@@ -105,14 +107,27 @@
             align-self: center;
         }
         .footer {
-            padding: 0.2em 0.5em 0.2em 0.2em;
+            padding: 0.2em;
             font-size: 90%;
             border-top: 1px solid var(--border-color);
             grid-column: span 5;
+            display: grid;
+            grid-template-areas: "left center right";
+            grid-template-columns: 1.5fr 1.75fr 2.25fr;
         }
-        .footer > ol, .note > ol {
-            margin: 0;
-            padding-inline-start: 2.5em;
+        .key-value {
+            padding: 0.2em;
+            display: grid;
+            grid-template-areas: "key value";
+            grid-template-columns: auto 1fr;
+            align-content: start;
+        }
+        .key {
+            padding: 0.2em;
+            text-align: right;
+        }
+        .value {
+            padding: 0.2em;
         }
         .option-footer {
             padding: 0.2em 0.5em 0.2em 0.2em;
@@ -141,6 +156,9 @@
         .note {
             padding: 0.2em 0.5em 0.2em 0.2em;
             font-size: 90%;
+        }
+        .note li {
+            padding: 0.2em;
         }
         .band {
             background-color: var(--banding-color);
@@ -172,7 +190,7 @@
         combined bonus from all targeting systems cannot exceed the weapon's base Acc). Must choose a specific target
         that you can see.</div>
     <div class="defense">Any<span class="sup">1</span></div>
-    <div class="move">Step (None with braced two-handed weapon)</div>
+    <div class="move">Step<span class="sup">2</span></div>
     <div class="page">B364</div>
 
     <div class="maneuver span5 band">All-Out Attack (Melee)</div>
@@ -180,26 +198,26 @@
     <div class="maneuver-sub">Determined</div>
     <div class="desc">+4 to hit</div>
     <div class="defense">None</div>
-    <div class="move">Half Move (forward)</div>
+    <div class="move">Half Move<span class="sup">3</span></div>
     <div class="page">B365</div>
 
     <div class="maneuver-sub band">Double</div>
     <div class="desc band">2 attacks on same foe if you have two ready weapons or one weapon that does not have to be
         readied after use (normal -4 off-hand penalty applies)</div>
     <div class="defense band">None</div>
-    <div class="move band">Half Move (forward)</div>
+    <div class="move band">Half Move<span class="sup">3</span></div>
     <div class="page band">B365</div>
 
     <div class="maneuver-sub">Feint</div>
     <div class="desc">Make one feint and then one attack on same foe</div>
     <div class="defense">None</div>
-    <div class="move">Half Move (forward)</div>
+    <div class="move">Half Move<span class="sup">3</span></div>
     <div class="page">B365</div>
 
     <div class="maneuver-sub band">Strong</div>
     <div class="desc band">+2 to damage (or +1 per damage die)</div>
     <div class="defense band">None</div>
-    <div class="move band">Half Move (forward)</div>
+    <div class="move band">Half Move<span class="sup">3</span></div>
     <div class="page band">B365</div>
 
     <div class="maneuver span5">All-Out Attack (Ranged)</div>
@@ -207,13 +225,13 @@
     <div class="maneuver-sub band">Determined</div>
     <div class="desc band">+1 to hit</div>
     <div class="defense band">None</div>
-    <div class="move band">Half Move (forward)</div>
+    <div class="move band">Half Move<span class="sup">3</span></div>
     <div class="page band">B365</div>
 
     <div class="maneuver-sub">Suppression Fire</div>
     <div class="desc">Weapon must have RoF 5+ (B409)</div>
     <div class="defense">None</div>
-    <div class="move">Half Move (forward)</div>
+    <div class="move">Half Move<span class="sup">3</span></div>
     <div class="page">B365</div>
 
     <div class="maneuver band span5">All-Out Defense</div>
@@ -221,7 +239,7 @@
     <div class="maneuver-sub">Increased</div>
     <div class="desc">+2 to one Active Defense until next turn</div>
     <div class="defense">Any</div>
-    <div class="move">Step (or Half Move with Increased Dodge)</div>
+    <div class="move">Step<span class="sup">4</span></div>
     <div class="page">B366</div>
 
     <div class="maneuver-sub band">Double</div>
@@ -233,7 +251,7 @@
     <div class="maneuver sep">Attack</div>
     <div class="desc sep">Attack unarmed or with a ready weapon (melee weapon attacks are at -4 to off-hand)</div>
     <div class="defense sep">Any</div>
-    <div class="move sep">Step (before or after attack)</div>
+    <div class="move sep">Step<span class="sup">5</span></div>
     <div class="page sep">B365</div>
 
     <div class="maneuver band sep">Change Posture</div>
@@ -246,7 +264,7 @@
 
     <div class="maneuver sep">Concentrate</div>
     <div class="desc sep">Focus on a mental task</div>
-    <div class="defense sep">Any<span class="sup">2</span></div>
+    <div class="defense sep">Any<span class="sup">6</span></div>
     <div class="move sep">Step</div>
     <div class="page sep">B366</div>
 
@@ -274,14 +292,14 @@
 
     <div class="maneuver-sub band">Melee</div>
     <div class="desc band">Attack at a -4 penalty unless a Slam is being used. Maximum skill of 9.</div>
-    <div class="defense band">Special<span class="sup">3</span></div>
-    <div class="move band">Full Move (-2 to avoid falling)</div>
+    <div class="defense band">Special<span class="sup">7</span></div>
+    <div class="move band">Full Move<span class="sup">8</span></div>
     <div class="page band">B365</div>
 
     <div class="maneuver-sub">Ranged</div>
     <div class="desc">Attack at -2 or the weapon's Bulk penalty, whichever is worse and lose any aiming bonus</div>
-    <div class="defense">Special<span class="sup">3</span></div>
-    <div class="move">Full Move (-2 to avoid falling)</div>
+    <div class="defense">Special<span class="sup">7</span></div>
+    <div class="move">Full Move<span class="sup">8</span></div>
     <div class="page">B365</div>
 
     <div class="maneuver band sep">Move</div>
@@ -302,21 +320,53 @@
         your next turn. If it happens, you may transform your Wait into an Attack, Feint, All-Out Attack, or Ready
         maneuver (you must specify the option before acting). If you are reacting to someone else, this interrupts his
         turn, but he can resume it after you’ve acted.</div>
-    <div class="defense band sep">Any<span class="sup">4</span></div>
-    <div class="move band sep">None until Wait triggered</div>
+    <div class="defense band sep">Any<span class="sup">9</span></div>
+    <div class="move band sep">None<span class="sup">10</span></div>
     <div class="page band sep">B366</div>
 
     <div class="footer">
-        <ol>
-            <li>Taking an active defense spoils your Aim; if you are injured, make a Will roll or lose your Aim.</li>
-            <li>Taking an active defense or being knocked down, injured, distracted etc. requires a Will-3 roll to
-                maintain.</li>
-            <li>The attacker cannot parry with the limb(s) he used to attack, block if he attacked with his shield or
-                cloak, or dodge if he kicked. He can use any other defense, but cannot retreat.</li>
-            <li>You may defend normally while you are waiting or after your Wait is triggered. But if you defend while
-                taking a Wait, you may not transform your Wait into an All-Out Attack; you must convert your Wait into
-                an Attack instead.</li>
-        </ol>
+        <div class="key-value">
+            <div class="key">1.</div>
+            <div class="value">Taking an active defense spoils your Aim; if you are injured, make a
+                Will roll or lose your Aim.</div>
+
+            <div class="key">2.</div>
+            <div class="value">None with braced two-handed weapon.</div>
+
+            <div class="key">3.</div>
+            <div class="value">Forward only.</div>
+
+            <div class="key">4.</div>
+            <div class="value">Half Move when increasing Dodge.</div>
+        </div>
+
+        <div class="key-value">
+            <div class="key">5.</div>
+            <div class="value">Step may be made before or after the attack.</div>
+
+            <div class="key">6.</div>
+            <div class="value">Taking an active defense or being knocked down, injured, or
+                distracted requires a Will-3 roll to maintain.</div>
+
+            <div class="key">7.</div>
+            <div class="value">The attacker cannot parry with the limb(s) he used to attack, block
+                if he attacked with his shield or cloak, or dodge if he kicked. He can use any other
+                defense, but cannot retreat.</div>
+        </div>
+
+        <div class="key-value">
+            <div class="key">8.</div>
+            <div class="value">-2 to avoid any falling or tripping hazards.</div>
+
+            <div class="key">9.</div>
+            <div class="value">You may defend normally while you are waiting or after your Wait is
+                triggered. But if you defend while taking a Wait, you may not transform your Wait
+                into an All-Out Attack; you must convert your Wait into an Attack instead.</div>
+
+            <div class="key">10.</div>
+            <div class="value">If the Wait is triggered, movement as normal for the triggered
+                maneuver.</div>
+        </div>
     </div>
 </div>
 <div class="options">

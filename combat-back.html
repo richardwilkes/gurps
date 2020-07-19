@@ -14,22 +14,27 @@
             padding: 0;
             margin: 0.25in;
             font-family: sans-serif;
-            font-size: 7.8pt;
+            font-size: 7.5pt;
         }
 
         @media print {
+            @page {
+                margin: 0.25in;
+            }
+
             body {
                 margin: 0;
             }
         }
 
         .outer {
+            width: 8in;
             margin: 0;
             padding: 0;
             display: grid;
             grid-template-areas:
                 "range_table melee_mods ad_mods"
-                "ranged_mods ranged_mods ranged_mods";
+                "range_table ranged_mods ranged_mods";
             grid-template-columns: auto 1fr 1fr;
             gap: 2px 2px;
             align-content: start;
@@ -41,6 +46,7 @@
             padding: 0;
             border: 1px solid var(--header-background);
             border-top-left-radius: 0.5em;
+            border-bottom-left-radius: 0.5em;
             display: grid;
             grid-template-areas:
                 "speed_range_mod size_mod measurement";
@@ -93,7 +99,6 @@
             margin: 0;
             padding: 0;
             border: 1px solid var(--header-background);
-            border-top-right-radius: 0.5em;
         }
 
         .heading {
@@ -108,11 +113,13 @@
 
         .footer {
             padding: 0.2em;
+            padding-top: 0.5em;
             font-style: italic;
         }
 
-        .first {
-            padding-top: 1em;
+        .footer > ol {
+            margin: 0;
+            padding-left: 1.5em;
         }
 
         .ranged_mods {
@@ -120,6 +127,7 @@
             margin: 0;
             padding: 0;
             border: 1px solid var(--header-background);
+            border-bottom-right-radius: 0.5em;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2px 2px;
@@ -135,6 +143,7 @@
             margin: 0;
             padding: 0;
             border: 1px solid var(--header-background);
+            border-top-right-radius: 0.5em;
         }
 
         .sup {
@@ -388,15 +397,18 @@
                     class="sup">1</span></div>
         <div class="criteria">Partial darkness, fog, smoke, etc: -1 to -9 (GM's option)</div>
 
-        <div class="footer first">1. Adjusted skill after all modifiers cannot exceed 9.</div>
-        <div class="footer">2. Total visibility modifiers cannot exceed -10 (-6 if used to blindness).</div>
+        <div class="footer">
+            <ol>
+                <li>Adjusted skill after all modifiers cannot exceed 9.</li>
+                <li>Total visibility modifiers cannot exceed -10 (-6 if used to blindness).</li>
+            </ol>
+        </div>
     </div>
 
     <div class="ranged_mods">
         <div class="title">Ranged Attack Modifiers</div>
 
         <div>
-
             <div class="heading">Attacker's Maneuver</div>
             <div class="criteria">All-Out Attack (Determined): +1</div>
             <div class="criteria">Move and Attack: -2 or the weapon's Bulk penalty, whichever is worse and lose any
@@ -415,37 +427,20 @@
             <div class="criteria">ST below that required for weapon: -1 per point of deficit</div>
 
             <div class="heading">Attacking from Moving Vehicle or Mount</div>
-            <div class="criteria">If weapon is not in a stabilized mount, the combined bonus for Accuracy, Aim, bracing,
-                and
-                targeting systems cannot exceed the vehicle’s SR
-            </div>
             <div class="criteria">Air vehicle: -1 if handheld weapon, 0 otherwise</div>
             <div class="criteria">Exposed rider hanging on side of vehicle/mount and shooting over/under it: -6</div>
-            <div class="criteria">Ground vehicle, good road: -1 if handheld weapon, 0 otherwise</div>
-            <div class="criteria">Ground vehicle, bad road: 0 if stabilized turret or stabilized open mount; -1 if fixed
-                mount, hard-point, or carriage; -2 if external open mount; -3 if handheld weapon
-            </div>
-            <div class="criteria">Ground vehicle, off-road: -1 if stabilized turret or stabilized open mount; -2 if
-                fixed
-                mount, hard-point, or carriage; -3 if external open mount; -4 if handheld weapon
-            </div>
+            <div class="criteria">Ground vehicle (good road): -1 if handheld weapon, 0 otherwise</div>
+            <div class="criteria">Ground vehicle (bad road) or water vehicle (calm water): 0 if stabilized turret or
+                stabilized open mount; -1 if fixed mount, hard-point, or carriage; -2 if external open mount; -3 if
+                handheld weapon</div>
+            <div class="criteria">Ground vehicle (off-road) or water vehicle (rough water): -1 if stabilized turret or
+                stabilized open mount; -2 if fixed mount, hard-point, or carriage; -3 if external open mount; -4 if
+                handheld weapon</div>
             <div class="criteria">Space vehicle: 0</div>
-            <div class="criteria">Turning in exposed saddle/seat of vehicle/mount to fire at foe behind: -4</div>
+            <div class="criteria">Turning in exposed seat of vehicle/mount to fire at foe behind: -4</div>
             <div class="criteria">Vehicle/mount dodged last turn and you're not operator/rider: -2, or -4 if flying
             </div>
             <div class="criteria">Vehicle/mount failed control roll: penalty equal to margin of failure</div>
-            <div class="criteria">Water vehicle, calm water: 0 if stabilized turret or stabilized open mount; -1 if
-                fixed
-                mount, hard-point, or carriage; -2 if external open mount; -3 if handheld weapon
-            </div>
-            <div class="criteria">Water vehicle, rough water: -1 if stabilized turret or stabilized open mount; -2 if
-                fixed
-                mount, hard-point, or carriage; -3 if external open mount; -4 if handheld weapon
-            </div>
-
-        </div>
-
-        <div>
 
             <div class="heading">Opportunity Fire</div>
             <div class="criteria">Checking target before firing: -2</div>
@@ -453,6 +448,9 @@
                 -4
                 if 7-10 hexes; -5 if 11+ hexes watched
             </div>
+
+        </div>
+        <div>
 
             <div class="heading">Other Actions by Attacker</div>
             <div class="criteria">Aim for one turn: +Accuracy of weapon</div>
@@ -493,9 +491,12 @@
             <div class="criteria">Partial darkness, fog, smoke, etc: -1 to -9 (GM's option)</div>
             <div class="criteria">Target has light concealment (e.g. bushes): -2</div>
 
-            <div class="footer first">1. Adjusted skill after all modifiers cannot exceed 9.</div>
-            <div class="footer">2. Total visibility modifiers cannot exceed -10 (-6 if used to blindness).</div>
-
+            <div class="footer">
+                <ol>
+                    <li>Adjusted skill after all modifiers cannot exceed 9.</li>
+                    <li>Total visibility modifiers cannot exceed -10 (-6 if used to blindness).</li>
+                </ol>
+            </div>
         </div>
     </div>
 
@@ -507,11 +508,11 @@
         <div class="criteria">Parrying with kusari or whip: -2 to Parry</div>
         <div class="criteria">Parrying with quarterstaff: +2 to Parry</div>
         <div class="criteria">Shield or cloak: +DB of shield, except vs. firearms</div>
-        <div class="criteria">Unarmed parry vs. weapon: -3 to Parry (0 vs. thrust, or with Judo or Karate)</div>
+        <div class="criteria">Unarmed parry vs. weapon: -3 to Parry (0 if thrust or Judo/Karate)</div>
 
         <div class="heading">Defender's Maneuver</div>
         <div class="criteria">All-Out Attack: no defense possible</div>
-        <div class="criteria">All-Out Defense (Increased Defense): +2 to one of Dodge, Block, or Parry</div>
+        <div class="criteria">All-Out Defense (Increased): +2 to one of Dodge, Block, or Parry</div>
         <div class="criteria">Move and Attack: dodge or block only; you cannot parry</div>
 
         <div class="heading">Defender's Posture</div>
@@ -529,14 +530,12 @@
         <div class="criteria">Encumbered: penalty equal to encumbrance level to Dodge, or to Judo, Karate, or any
             fencing Parry
         </div>
-        <div class="criteria">Mounted: penalty equal to difference between 12 and Riding skill (no penalty for Riding at
-            12+)
-        </div>
+        <div class="criteria">Mounted and Riding Skill < 12: -(12 - Riding skill)</div>
         <div class="criteria">Stunned: -4</div>
 
         <div class="heading">Nature of Attack</div>
-        <div class="criteria">Attack from behind: no defense possible (defense at -2 with Peripheral Vision)</div>
-        <div class="criteria">Attack from side or "runaround" attack: -2 (no penalty with Peripheral Vision)</div>
+        <div class="criteria">Attack from behind: no defense possible</div>
+        <div class="criteria">Attack from side or "runaround" attack: -2</div>
         <div class="criteria">Attacker used laser sight: +1 to Dodge if dot is visible</div>
         <div class="criteria">Deceptive Attack: -1 per -2 the attacker took to his attack</div>
         <div class="criteria">Dual-Weapon Attack: -1 if both attacks strike the same target</div>

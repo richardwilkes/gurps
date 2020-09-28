@@ -1,0 +1,677 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <title>GURPS Critical Success &amp; Failure Charts</title>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+  <style type="text/css">
+    body {
+      background-color: white;
+      font: normal 12px/13px 'Arial',sans-serif;
+    }
+    table { border-collapse: collapse; }
+    td.wrapper {
+      border: none;
+      padding: 10px;
+      vertical-align: top;
+    }
+    th {
+      border: solid 1px black;
+      padding: 2px;
+      background-color: #CCC;
+      vertical-align: bottom;
+    }
+    th.title {
+      font: bold 14px/15px 'Arial',sans-serif;
+      white-space: nowrap;
+    }
+    td {
+      border: solid 1px black;
+      padding: 2px;
+    }
+    tr.even { background-color: #FFC; }
+    tr.odd { background-color: #CFF; }
+    td.note {
+      background-color: #CCC;
+      width: 1em;
+    }
+    td.roll,
+    td.mana,
+    td.effect,
+    td.cp,
+    td.unconc,
+    td.stun,
+    td.spell,
+    td.damage,
+    td.fall,
+    td.drop,
+    td.dr { text-align: center }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td class="wrapper">
+        <table>
+          <tr>
+            <th class="title" colspan="4">Magic Critical Success</th>
+          </tr>
+          <tr>
+            <th>Roll</th>
+            <th>Mana<br>Cost</th>
+            <th>Effect</th>
+            <th>CP Gain<br>in Spell</th>
+          </tr>
+          <tr class="even">
+            <td class="roll">2</td>
+            <td class="mana">None</td>
+            <td class="effect">Permanent x3</td>
+            <td class="cp">8</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">3</td>
+            <td class="mana">None</td>
+            <td class="effect">Permanent x2</td>
+            <td class="cp">6</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">4</td>
+            <td class="mana">None</td>
+            <td class="effect">Permanent</td>
+            <td class="cp">4</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">5</td>
+            <td class="mana">-14</td>
+            <td class="effect">x10</td>
+            <td class="cp">3</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">6</td>
+            <td class="mana">-13</td>
+            <td class="effect">x8</td>
+            <td class="cp">2</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">7</td>
+            <td class="mana">-12</td>
+            <td class="effect">x6</td>
+            <td class="cp">1</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">8</td>
+            <td class="mana">-11</td>
+            <td class="effect">x5</td>
+            <td class="cp">1</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">9</td>
+            <td class="mana">-10</td>
+            <td class="effect">x4</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">10</td>
+            <td class="mana">-9</td>
+            <td class="effect">x3</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">11</td>
+            <td class="mana">-8</td>
+            <td class="effect">x3</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">12</td>
+            <td class="mana">-7</td>
+            <td class="effect">x2</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">13</td>
+            <td class="mana">-6</td>
+            <td class="effect">x2</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">14</td>
+            <td class="mana">-5</td>
+            <td class="effect">+50%</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">15</td>
+            <td class="mana">-4</td>
+            <td class="effect">+50%</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">16</td>
+            <td class="mana">-3</td>
+            <td class="effect">Normal</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">17</td>
+            <td class="mana">-2</td>
+            <td class="effect">Normal</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">18</td>
+            <td class="mana">-1</td>
+            <td class="effect">Normal</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr>
+            <td class="note" colspan="4">A critical success obtained by rolling an unmodified <strong>3 or 4</strong> has a <strong>-1 bonus</strong> on this table.</td>
+          </tr>
+          <tr>
+            <td class="note" colspan="4">Excess effectiveness should be used creatively by the GM (e.g. extra healing effectiveness might flow to the next potential, friendly, patient).</td>
+          </tr>
+        </table>
+      </td>
+      <td class="wrapper">
+        <table>
+          <tr>
+            <th class="title" colspan="5">Magic Critical Failure</th>
+          </tr>
+          <tr>
+            <th>Roll</th>
+            <th>Effect</th>
+            <th>Unconscious</th>
+            <th>Stun</th>
+            <th>Spell<br>Loss</th>
+          </tr>
+          <tr class="odd">
+            <td class="roll">3</td>
+            <td class="effect">None</td>
+            <td class="unconc">HT+5</td>
+            <td class="stun">HT</td>
+            <td class="spell">IQ+2</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">4</td>
+            <td class="effect">None</td>
+            <td class="unconc">HT+5</td>
+            <td class="stun">HT-1</td>
+            <td class="spell">IQ+1</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">5</td>
+            <td class="effect">None</td>
+            <td class="unconc">HT+4</td>
+            <td class="stun">HT-2</td>
+            <td class="spell">IQ</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">6</td>
+            <td class="effect">None</td>
+            <td class="unconc">HT+4</td>
+            <td class="stun">HT-3</td>
+            <td class="spell">IQ-1</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">7</td>
+            <td class="effect">None</td>
+            <td class="unconc">HT+3</td>
+            <td class="stun">HT-4</td>
+            <td class="spell">IQ-2</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">8</td>
+            <td class="effect">Altered</td>
+            <td class="unconc">HT+3</td>
+            <td class="stun">HT-5</td>
+            <td class="spell">IQ-3</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">9</td>
+            <td class="effect">Altered</td>
+            <td class="unconc">HT+2</td>
+            <td class="stun">HT-6</td>
+            <td class="spell">IQ-4</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">10</td>
+            <td class="effect">Altered</td>
+            <td class="unconc">HT+2</td>
+            <td class="stun">HT-7</td>
+            <td class="spell">IQ-5</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">11</td>
+            <td class="effect">Altered</td>
+            <td class="unconc">HT+1</td>
+            <td class="stun">HT-8</td>
+            <td class="spell">IQ-6</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">12</td>
+            <td class="effect">Pumped</td>
+            <td class="unconc">HT+1</td>
+            <td class="stun">HT-9</td>
+            <td class="spell">IQ-7</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">13</td>
+            <td class="effect">Pumped</td>
+            <td class="unconc">HT</td>
+            <td class="stun">Yes</td>
+            <td class="spell">IQ-8</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">14</td>
+            <td class="effect">Pumped</td>
+            <td class="unconc">HT</td>
+            <td class="stun">Yes</td>
+            <td class="spell">IQ-9</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">15</td>
+            <td class="effect">Pumped</td>
+            <td class="unconc">HT-1</td>
+            <td class="stun">Yes</td>
+            <td class="spell">IQ-10</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">16</td>
+            <td class="effect">Demon</td>
+            <td class="unconc">HT-1</td>
+            <td class="stun">Yes</td>
+            <td class="spell">Yes</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">17</td>
+            <td class="effect">Demon x2</td>
+            <td class="unconc">HT-2</td>
+            <td class="stun">Yes</td>
+            <td class="spell">Yes</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">18</td>
+            <td class="effect">Demon x3</td>
+            <td class="unconc">HT-2</td>
+            <td class="stun">Yes</td>
+            <td class="spell">Yes</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">19</td>
+            <td class="effect">Demon x4</td>
+            <td class="unconc">HT-3</td>
+            <td class="stun">Yes</td>
+            <td class="spell">Yes</td>
+          </tr>
+          <tr>
+            <td class="note" colspan="5">A critical failure obtained by rolling an unmodified <strong>17 or 18</strong> has a <strong>+1 bonus</strong> on this table.</td>
+          </tr>
+          <tr>
+            <td class="note" colspan="5"><strong>Altered</strong>: Alter the spell effect in a suitably inconvenient and/or nasty way.</td>
+          </tr>
+          <tr>
+            <td class="note" colspan="5"><strong>Pumped</strong>: Same as "Altered", but roll on the critical success table and apply the results from the Effect column.</td>
+          </tr>
+          <tr>
+            <td class="note" colspan="5"><strong>Demon</strong>: A demon materializes and attacks the mage and those around him.</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td class="wrapper">
+        <table>
+          <tr>
+            <th class="title" colspan="8">Combat Critical Success</th>
+          </tr>
+          <tr>
+            <th colspan="3"></th>
+            <th colspan="4">Foe</th>
+            <th></th>
+          </tr>
+          <tr>
+            <th>Roll</th>
+            <th>DR</th>
+            <th>Damage</th>
+            <th>Unconscious</th>
+            <th>Stun</th>
+            <th>Fall</th>
+            <th>Drop<br>Weapon</th>
+            <th>CP Gain<br>in Skill</th>
+          </tr>
+          <tr class="even">
+            <td class="roll">2</td>
+            <td colspan="6">Target is killed instantly, as if the target had HP brought to -5 x HT</td>
+            <td class="cp">8</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">3</td>
+            <td class="dr">Ignore</td>
+            <td class="damage">+4d-1</td>
+            <td class="unconc">Yes</td>
+            <td class="stun">Yes</td>
+            <td class="fall">Yes</td>
+            <td class="drop">Yes</td>
+            <td class="cp">6</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">4</td>
+            <td class="dr">Ignore</td>
+            <td class="damage">+3d+2</td>
+            <td class="unconc">Yes</td>
+            <td class="stun">Yes</td>
+            <td class="fall">Yes</td>
+            <td class="drop">Yes</td>
+            <td class="cp">4</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">5</td>
+            <td class="dr">Ignore</td>
+            <td class="damage">+3d+1</td>
+            <td class="unconc">HT-5</td>
+            <td class="stun">Yes</td>
+            <td class="fall">Yes</td>
+            <td class="drop">Yes</td>
+            <td class="cp">3</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">6</td>
+            <td class="dr">÷4</td>
+            <td class="damage">+3d</td>
+            <td class="unconc">HT-4</td>
+            <td class="stun">Yes</td>
+            <td class="fall">Yes</td>
+            <td class="drop">DX-5</td>
+            <td class="cp">2</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">7</td>
+            <td class="dr">÷4</td>
+            <td class="damage">+3d-1</td>
+            <td class="unconc">HT-3</td>
+            <td class="stun">Yes</td>
+            <td class="fall">DX-5</td>
+            <td class="drop">DX-4</td>
+            <td class="cp">1</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">8</td>
+            <td class="dr">÷4</td>
+            <td class="damage">+2d+2</td>
+            <td class="unconc">HT-2</td>
+            <td class="stun">Yes</td>
+            <td class="fall">DX-4</td>
+            <td class="drop">DX-3</td>
+            <td class="cp">1</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">9</td>
+            <td class="dr">÷3</td>
+            <td class="damage">+2d+1</td>
+            <td class="unconc">HT-1</td>
+            <td class="stun">Yes</td>
+            <td class="fall">DX-3</td>
+            <td class="drop">DX-2</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">10</td>
+            <td class="dr">÷3</td>
+            <td class="damage">+2d</td>
+            <td class="unconc">HT</td>
+            <td class="stun">Yes</td>
+            <td class="fall">DX-2</td>
+            <td class="drop">DX-1</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">11</td>
+            <td class="dr">÷3</td>
+            <td class="damage">+2d-1</td>
+            <td class="unconc">HT+1</td>
+            <td class="stun">HT-5</td>
+            <td class="fall">DX-1</td>
+            <td class="drop">DX</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">12</td>
+            <td class="dr">÷2</td>
+            <td class="damage">+1d+2</td>
+            <td class="unconc">HT+2</td>
+            <td class="stun">HT-4</td>
+            <td class="fall">DX</td>
+            <td class="drop">DX+1</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">13</td>
+            <td class="dr">÷2</td>
+            <td class="damage">+1d+1</td>
+            <td class="unconc">HT+3</td>
+            <td class="stun">HT-3</td>
+            <td class="fall">DX+1</td>
+            <td class="drop">DX+2</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">14</td>
+            <td class="dr">÷2</td>
+            <td class="damage">+1d</td>
+            <td class="unconc">HT+4</td>
+            <td class="stun">HT-2</td>
+            <td class="fall">DX+2</td>
+            <td class="drop">DX+3</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">15</td>
+            <td class="dr">-1</td>
+            <td class="damage">+1d-1</td>
+            <td class="unconc">HT+5</td>
+            <td class="stun">HT-1</td>
+            <td class="fall">DX+3</td>
+            <td class="drop">DX+4</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">16</td>
+            <td class="dr">-1</td>
+            <td class="damage">+1d-2</td>
+            <td class="unconc">No</td>
+            <td class="stun">HT</td>
+            <td class="fall">DX+4</td>
+            <td class="drop">DX+5</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">17</td>
+            <td class="dr">-1</td>
+            <td class="damage">+1d-3</td>
+            <td class="unconc">No</td>
+            <td class="stun">HT+1</td>
+            <td class="fall">DX+5</td>
+            <td class="drop">No</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">18</td>
+            <td class="dr">Normal</td>
+            <td class="damage">+1</td>
+            <td class="unconc">No</td>
+            <td class="stun">HT+2</td>
+            <td class="fall">No</td>
+            <td class="drop">No</td>
+            <td class="cp">-</td>
+          </tr>
+          <tr>
+            <td class="note" colspan="8">A critical success obtained by rolling an unmodified <strong>3 or 4</strong> has a <strong>-1 bonus</strong> on this table.</td>
+          </tr>
+          <tr>
+            <td class="note" colspan="8">Extra damage inflicted is always at least one point.</td>
+          </tr>
+        </table>
+      </td>
+      <td class="wrapper">
+        <table>
+          <tr>
+            <th class="title" colspan="6">Combat Critical Failure</th>
+          </tr>
+          <tr>
+            <th>Roll</th>
+            <th>Damage</th>
+            <th>Unconscious</th>
+            <th>Stun</th>
+            <th>Fall</th>
+            <th>Drop<br>Weapon</th>
+          </tr>
+          <tr class="odd">
+            <td class="roll">3</td>
+            <td class="damage">1</td>
+            <td class="unconc">No</td>
+            <td class="stun">HT+5</td>
+            <td class="fall">No</td>
+            <td class="drop">No</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">4</td>
+            <td class="damage">1d-3</td>
+            <td class="unconc">No</td>
+            <td class="stun">HT+4</td>
+            <td class="fall">No</td>
+            <td class="drop">DX+5</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">5</td>
+            <td class="damage">1d-2</td>
+            <td class="unconc">No</td>
+            <td class="stun">HT+3</td>
+            <td class="fall">DX+5</td>
+            <td class="drop">DX+4</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">6</td>
+            <td class="damage">1d-1</td>
+            <td class="unconc">No</td>
+            <td class="stun">HT+2</td>
+            <td class="fall">DX+4</td>
+            <td class="drop">DX+3</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">7</td>
+            <td class="damage">1d</td>
+            <td class="unconc">HT+5</td>
+            <td class="stun">HT+1</td>
+            <td class="fall">DX+3</td>
+            <td class="drop">DX+2</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">8</td>
+            <td class="damage">1d+1</td>
+            <td class="unconc">HT+4</td>
+            <td class="stun">HT</td>
+            <td class="fall">DX+2</td>
+            <td class="drop">DX+1</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">9</td>
+            <td class="damage">1d+2</td>
+            <td class="unconc">HT+3</td>
+            <td class="stun">HT-1</td>
+            <td class="fall">DX+1</td>
+            <td class="drop">DX</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">10</td>
+            <td class="damage">2d-1</td>
+            <td class="unconc">HT+2</td>
+            <td class="stun">HT-2</td>
+            <td class="fall">DX</td>
+            <td class="drop">DX-1</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">11</td>
+            <td class="damage">2d</td>
+            <td class="unconc">HT+1</td>
+            <td class="stun">HT-3</td>
+            <td class="fall">DX-1</td>
+            <td class="drop">DX-2</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">12</td>
+            <td class="damage">2d+1</td>
+            <td class="unconc">HT</td>
+            <td class="stun">HT-4</td>
+            <td class="fall">DX-2</td>
+            <td class="drop">DX-3</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">13</td>
+            <td class="damage">2d+2</td>
+            <td class="unconc">HT-1</td>
+            <td class="stun">HT-5</td>
+            <td class="fall">DX-3</td>
+            <td class="drop">DX-4</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">14</td>
+            <td class="damage">3d-1</td>
+            <td class="unconc">HT-2</td>
+            <td class="stun">Yes</td>
+            <td class="fall">DX-4</td>
+            <td class="drop">DX-5</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">15</td>
+            <td class="damage">3d</td>
+            <td class="unconc">HT-3</td>
+            <td class="stun">Yes</td>
+            <td class="fall">DX-5</td>
+            <td class="drop">Yes</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">16</td>
+            <td class="damage">3d+1</td>
+            <td class="unconc">HT-4</td>
+            <td class="stun">Yes</td>
+            <td class="fall">Yes</td>
+            <td class="drop">Yes</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">17</td>
+            <td class="damage">3d+2</td>
+            <td class="unconc">HT-5</td>
+            <td class="stun">Yes</td>
+            <td class="fall">Yes</td>
+            <td class="drop">Yes</td>
+          </tr>
+          <tr class="even">
+            <td class="roll">18</td>
+            <td class="damage">4d-1</td>
+            <td class="unconc">Yes</td>
+            <td class="stun">Yes</td>
+            <td class="fall">Yes</td>
+            <td class="drop">Yes</td>
+          </tr>
+          <tr class="odd">
+            <td class="roll">19</td>
+            <td class="damage">4d</td>
+            <td class="unconc">Yes</td>
+            <td class="stun">Yes</td>
+            <td class="fall">Yes</td>
+            <td class="drop">Yes</td>
+          </tr>
+          <tr>
+            <td class="note" colspan="6">A critical failure obtained by rolling an unmodified <strong>17 or 18</strong> has a <strong>+1 bonus</strong> on this table.</td>
+          </tr>
+          <tr>
+            <td class="note" colspan="6">Damage from this table ignores DR, is applied to a randomly determined hit location, and can never be less than 1 point per die rolled.</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
